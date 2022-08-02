@@ -1,0 +1,51 @@
+<div class="card-top container-fluid">
+  <div class="container d-flex">
+    <div class="item" (click)="showCategory('top_offers')">
+      <a >
+        <img class="img-container" src="assets/sale.jpg" alt="">
+        <h4>Top Offers</h4>
+      </a>
+    </div>
+    <div class="item"  (click)="showCategory('laptop')">
+      <a >
+        <img class="img-container" src="assets/apple.jpg" alt="">
+        <h4>Laptop</h4>
+      </a>
+    </div>
+    <div class="item"  (click)="showCategory('mobile_phones')">
+      <a >
+        <img class="img-container" src="assets/iphoneX.jpg" alt="">
+        <h4>Mobile Phones</h4>
+      </a>
+    </div>
+    <div class="item" (click)="showCategory('fashion')">
+      <a >
+        <img class="img-container" src="assets/shirt.jpg" alt="">
+        <h4>Fashion</h4>
+      </a>
+    </div>
+    <div class="item" (click)="showCategory('Watch')">
+      <a >
+        <img class="img-container" src="assets/dieselwatch.jpg" alt="">
+        <h4>Watches</h4>
+      </a>
+    </div>
+  </div>
+</div>
+  <div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of productList">
+      <div class="card col-md-2">
+        <i class='fas fa-heart' style='font-size:20px;color:red;text-align:right' (click)=addToWishlist(item) *ngIf="confirmRole()"></i>
+        <img src="/assets/{{item.imageURL}}" alt="">
+        <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+        <p><strong>Price:</strong>₹{{item.price}}</p>
+        <button *ngIf="confirmRole()" class="btn btn-primary" (click)=addtoCart(item)>Add To Cart</button>
+    </div>
+    </ng-container>
+  </div>
+</div>
